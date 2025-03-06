@@ -17,3 +17,22 @@ end
 
 require "lazy_setup"
 require "polish"
+
+
+local telescope = require("telescope")
+
+vim.keymap.set("n", "<leader>js", function () pcall(telescope.extensions.jj.files, opts) end, {})
+vim.keymap.set("n", "<leader>jc", function () pcall(telescope.extensions.jj.conflicts, opts) end, {})
+vim.keymap.set("n", "<leader>jd", function () pcall(telescope.extensions.jj.diff, opts) end, {})
+
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazyjj = Terminal:new({ cmd = "lazyjj", hidden = true , direction = "float", float_opts = { border = "double" }})
+
+function _lazyjj_toggle()
+  lazyjj:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>jl", "<cmd>lua _lazyjj_toggle()<CR>", {noremap = true, silent = true})
+
+vim.opt.fileformat = "unix"
+vim.opt.fileformats = "unix,dos"
