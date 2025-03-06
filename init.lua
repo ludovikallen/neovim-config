@@ -36,3 +36,5 @@ vim.api.nvim_set_keymap("n", "<leader>jl", "<cmd>lua _lazyjj_toggle()<CR>", {nor
 
 vim.opt.fileformat = "unix"
 vim.opt.fileformats = "unix,dos"
+
+require('overseer').setup()
