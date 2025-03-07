@@ -46,6 +46,15 @@ return {
 		        end, 
 		        desc = "Show tests summary"
 		      },
+		      ["<leader>o"] = {
+		        desc = "Run configs with overseer"
+		      }, 
+		      ["<leader>ot"] = {
+		        function()
+		          require("overseer").toggle()
+		        end,
+		        desc = "Toggle overseer"
+		      }
         },
       },
     },
