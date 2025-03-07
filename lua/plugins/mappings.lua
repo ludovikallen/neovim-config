@@ -7,17 +7,47 @@ return {
         -- first key is the mode
         n = {
           -- second key is the lefthand side of the map
-		      ["<leader>lj"] = { 
+		      ["<leader>T"] = {
+		        desc = "Run tests" 
+		      },
+          ["<leader>Td"] = { 
 		        function()
-			        -- Get the directory of the current file
-			        local current_dir = vim.fn.expand('%:p:h')
-			        -- Run the command in that directory
-			        vim.cmd(string.format('terminal cd %s && powershell -c "lazyjj"', current_dir))
+              require("neotest").run.run({ strategy = "dap" })
 		        end, 
-		        desc = "Run lazyjj PowerShell command in current file directory" 
+		        desc = "Debug nearest test"
+		      },
+		      ["<leader>Tr"] = { 
+		        function()
+		          require("neotest").run.run({ strategy = "dap" })
+		        end, 
+		        desc = "Run nearest test"
+		      },
+		      ["<leader>Tf"] = { 
+		        function()
+              require("neotest").run.run(vim.fn.expand("%"))
+		        end, 
+		        desc = "Run all tests in current file"
+		      },
+		      ["<leader>Tc"] = { 
+		        function()
+              require("neotest").run.run(vim.fn.expand("%:p:h"))
+		        end, 
+		        desc = "Run all tests in current directory"
+		      },
+		      ["<leader>Ta"] = { 
+		        function()
+              require("neotest").run.run(vim.fn.getcwd())
+		        end, 
+		        desc = "Run all tests"
+		      },
+		      ["<leader>Ts"] = { 
+		        function()
+              require("neotest").summary.toggle()
+		        end, 
+		        desc = "Show tests summary"
 		      },
         },
       },
     },
   }
- }
+}
