@@ -38,3 +38,16 @@ vim.opt.fileformat = "unix"
 vim.opt.fileformats = "unix,dos"
 
 require('overseer').setup()
+
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    typescript = { "prettierd", "prettier", stop_after_first = true },
+    javascript = { "prettierd", "prettier", stop_after_first = true },
+    cs = { "csharpier" }
+  },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_format = "fallback",
+  },
+})
