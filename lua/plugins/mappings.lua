@@ -54,7 +54,28 @@ return {
 		          require("overseer").toggle()
 		        end,
 		        desc = "Toggle overseer"
-		      }
+		      },
+		      ["<leader>c"] = {
+		        desc = "Diffview"
+		      },
+		      ["<leader>co"] = {
+		        "<cmd>DiffviewOpen<CR>",
+		        desc = "Open diffview"
+		      },
+          ["<leader>cc"] = {
+		        "<cmd>DiffviewClose<CR>",
+		        desc = "Close diffview"
+		      },
+          ["<leader>cr"] = { 
+            function()
+              vim.ui.input({ prompt = "Enter branch to compare with main: " }, function(branch)
+                if branch and branch ~= "" then
+                  vim.cmd('DiffviewOpen main...' .. branch)
+                end
+              end)
+            end,
+            desc = "Review PR (diff branch with main)"
+          },
         },
       },
     },
