@@ -2,16 +2,15 @@ return {
   "folke/trouble.nvim",
   opts = {}, -- for default options, refer to the configuration section for custom setup.
   cmd = "Trouble",
-  focus = true,
   keys = {
     {
       "<leader>xx",
-      "<cmd>Trouble diagnostics toggle<cr>",
+      "<cmd>Trouble diagnostics toggle win.type=float focus=true<cr>",
       desc = "Diagnostics (Trouble)",
     },
     {
       "<leader>xX",
-      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      "<cmd>Trouble diagnostics toggle win.type=float focus=true filter.buf=0<cr>",
       desc = "Buffer Diagnostics (Trouble)",
     },
     {
@@ -21,7 +20,7 @@ return {
     },
     {
       "<leader>cl",
-      "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+      "<cmd>Trouble lsp toggle win.type=float focus=true<cr>",
       desc = "LSP Definitions / references / ... (Trouble)",
     },
     {

@@ -6,9 +6,12 @@
 return {
   "AstroNvim/astrocommunity",
   {
-    import = "astrocommunity.pack.cs"
+    import = "astrocommunity.pack.cs",
   },
   {
-    import = "astrocommunity.pack.typescript"
-  }
+    import = "astrocommunity.pack.typescript",
+  },
+  {
+    import = "astrocommunity.pack.lua",
+  },
 }
